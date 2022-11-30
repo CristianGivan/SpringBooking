@@ -29,6 +29,8 @@ public class User {
     @OneToMany(mappedBy = "user"/*, cascade = {CascadeType.PERSIST, CascadeType.MERGE}*/)
     private List<UserRole> userRoles;
 
+    @OneToMany(mappedBy = "user")
+    private List<Reservation> reservations;
 
     public User() {
     }
@@ -45,9 +47,9 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", userRoles=" + userRoles +
+                ", reservations=" + reservations +
                 '}';
     }
-
 
     public Long getId() {
         return id;
@@ -88,5 +90,13 @@ public class User {
 
     public void setUserRoles(List<UserRole> userRoles) {
         this.userRoles = userRoles;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 }

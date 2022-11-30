@@ -18,12 +18,12 @@ public class UserRole {
     @Column(name = "user_role_id")
     private Long id;
 
-    @ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "user_id")
     @JsonIgnore
     private User user;
 
-    @ManyToOne( cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "role_id")
     @JsonIgnore
     private Role role;
