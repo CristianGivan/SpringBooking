@@ -1,6 +1,7 @@
 package com.spring.booking.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -42,6 +43,9 @@ public class Hotel {
     }
 
     public List<Room> getRooms() {
+        if (rooms==null){
+            rooms=new ArrayList<>();
+        }
         return rooms;
     }
 

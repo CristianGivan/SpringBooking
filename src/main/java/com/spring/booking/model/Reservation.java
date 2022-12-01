@@ -28,16 +28,25 @@ public class Reservation {
     private User user;
 
     @Column (name = "check_in")
-    private LocalDateTime checkIn;
+    private LocalDate checkIn;
 
     @Column (name = "check_out")
-    private LocalDateTime checkOut;
+    private LocalDate checkOut;
 
+    @Column (name = "number_persons")
+    private int numberOfPersons;
     public Reservation() {
     }
 
+    public Reservation(User user,int numberOfPersons, LocalDate checkIn, LocalDate checkOut) {
+        this.user = user;
+        this.numberOfPersons=numberOfPersons;
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
+    }
+
     public Reservation(List<RoomReservation> roomReservations, User user,
-                       LocalDateTime checkIn, LocalDateTime checkOut) {
+                       LocalDate checkIn, LocalDate checkOut) {
         this.roomReservations = roomReservations;
         this.user = user;
         this.checkIn = checkIn;
@@ -79,19 +88,19 @@ public class Reservation {
         this.user = user;
     }
 
-    public LocalDateTime getCheckIn() {
+    public LocalDate getCheckIn() {
         return checkIn;
     }
 
-    public void setCheckIn(LocalDateTime checkIn) {
+    public void setCheckIn(LocalDate checkIn) {
         this.checkIn = checkIn;
     }
 
-    public LocalDateTime getCheckOut() {
+    public LocalDate getCheckOut() {
         return checkOut;
     }
 
-    public void setCheckOut(LocalDateTime checkOut) {
+    public void setCheckOut(LocalDate checkOut) {
         this.checkOut = checkOut;
     }
 }
